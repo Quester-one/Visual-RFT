@@ -1,3 +1,4 @@
+
 # Copyright 2025 The HuggingFace Team. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -53,7 +54,7 @@ _deps = [
     "huggingface-hub[cli]>=0.19.2,<1.0",
     "isort>=5.12.0",
     "liger_kernel==0.5.2",
-    # "lighteval @ git+https://github.com/huggingface/lighteval.git@4f381b352c0e467b5870a97d41cb66b487a2c503#egg=lighteval[math]",
+    "lighteval @ git+https://github.com/huggingface/lighteval.git@4f381b352c0e467b5870a97d41cb66b487a2c503#egg=lighteval[math]",
     "math-verify",  # Used for math verification in grpo
     "packaging>=23.0",
     "parameterized>=0.9.0",
@@ -61,8 +62,8 @@ _deps = [
     "safetensors>=0.3.3",
     "sentencepiece>=0.1.99",
     "torch>=2.5.1",
-    # "transformers @ git+https://github.com/huggingface/transformers.git@main",
-    # "trl @ git+https://github.com/huggingface/trl.git@main",
+    "transformers @ git+https://github.com/huggingface/transformers.git@main",
+    "trl @ git+https://github.com/huggingface/trl.git@main",
     "vllm==0.6.6.post1",
     "wandb>=0.19.1",
     "pillow",
@@ -85,8 +86,8 @@ extras = {}
 extras["tests"] = deps_list("pytest", "parameterized")
 extras["torch"] = deps_list("torch")
 extras["quality"] = deps_list("black", "isort", "flake8")
-# extras["eval"] = deps_list("lighteval", "math-verify")
-extras["dev"] = extras["quality"] + extras["tests"] # extras["eval"]
+extras["eval"] = deps_list("lighteval", "math-verify")
+extras["dev"] = extras["quality"] + extras["tests"] + extras["eval"]
 
 # core dependencies shared across the whole project - keep this to a bare minimum :)
 install_requires = [
@@ -101,8 +102,8 @@ install_requires = [
     deps["packaging"],  # utilities from PyPA to e.g., compare versions
     deps["safetensors"],
     deps["sentencepiece"],
-    # deps["transformers"],
-    # deps["trl"],
+    deps["transformers"],
+    deps["trl"],
 ]
 
 setup(

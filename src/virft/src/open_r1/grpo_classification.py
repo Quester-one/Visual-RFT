@@ -129,8 +129,8 @@ def main(script_args, training_args, model_args):
     # Load the dataset
     # dataset = load_dataset(script_args.dataset_name, name=script_args.dataset_config)
     ### lzy modified
-    from datasets import DatasetDict
-    dataset = DatasetDict.load_from_disk(script_args.dataset_name)
+    from datasets import load_dataset
+    dataset = load_dataset(script_args.dataset_name)
 
 
     # Format into conversation

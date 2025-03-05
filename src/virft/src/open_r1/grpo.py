@@ -17,12 +17,13 @@ import re
 from datetime import datetime
 from dataclasses import dataclass, field
 from typing import Optional
+import sys
+sys.path.append("/data/mentianyi/code/Visual-RFT/src/virft/src/")
 
-from datasets import load_dataset, load_from_disk
-from transformers import Qwen2VLForConditionalGeneration
+# from datasets import load_dataset, load_from_disk
+# from transformers import Qwen2VLForConditionalGeneration
 
 from math_verify import parse, verify
-# from open_r1.trainer import Qwen2VLGRPOTrainer
 from open_r1.trainer import Qwen2VLGRPOTrainer, Qwen2VLGRPOVLLMTrainer
 from trl import GRPOConfig, GRPOTrainer, ModelConfig, ScriptArguments, TrlParser, get_peft_config
 
@@ -381,8 +382,8 @@ def main(script_args, training_args, model_args):
     # Load the dataset from huggingface
     # dataset = load_dataset(script_args.dataset_name, name=script_args.dataset_config)
     # Load the dataset from local disk
-    from datasets import DatasetDict
-    dataset = DatasetDict.load_from_disk(script_args.dataset_name)
+    from datasets import load_dataset
+    dataset = load_dataset(script_args.dataset_name)
 
 
     # Format into conversation
