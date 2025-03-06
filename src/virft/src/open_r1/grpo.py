@@ -18,7 +18,7 @@ from datetime import datetime
 from dataclasses import dataclass, field
 from typing import Optional
 import sys
-sys.path.append("/data/mentianyi/code/Visual-RFT/src/virft/src/")
+sys.path.append("/mnt/userdata/code/Visual-RFT/src/virft/src/")
 
 # from datasets import load_dataset, load_from_disk
 # from transformers import Qwen2VLForConditionalGeneration
